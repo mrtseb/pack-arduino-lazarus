@@ -1,0 +1,301 @@
+object Form1: TForm1
+  Left = 282
+  Height = 566
+  Top = 142
+  Width = 871
+  Caption = 'Logique de commande - Auteur: M. TACK Sébastien -sebastien.tack@ac-caen.fr'
+  ClientHeight = 546
+  ClientWidth = 871
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '1.6.2.0'
+  object Image1: TImage
+    Left = 200
+    Height = 129
+    Top = 33
+    Width = 177
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 13
+    Top = 184
+    Width = 110
+    Caption = 'TABLE DE VERITÉ'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 13
+    Top = 344
+    Width = 116
+    Caption = 'CHRONOGRAMMES'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 13
+    Top = 8
+    Width = 147
+    Caption = 'BOÎTIER DE COMMANDE'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 200
+    Height = 13
+    Top = 8
+    Width = 177
+    Caption = 'SCHÉMA CÂBLÉ ÉQUIVALENT'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Image2: TImage
+    Left = 200
+    Height = 129
+    Top = 200
+    Width = 177
+  end
+  object Label5: TLabel
+    Left = 192
+    Height = 13
+    Top = 181
+    Width = 197
+    Caption = 'SCHÉMA DE LA PORTE LOGIQUE'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Panel1: TPanel
+    Left = 40
+    Height = 105
+    Top = 33
+    Width = 104
+    ClientHeight = 105
+    ClientWidth = 104
+    Color = clSkyBlue
+    ParentColor = False
+    TabOrder = 0
+    object ComboBox1: TComboBox
+      Left = 8
+      Height = 23
+      Top = 36
+      Width = 89
+      ItemHeight = 13
+      Items.Strings = (
+        '- RIEN -'
+        'OUI'
+        'NON'
+        'ET'
+        'OU'
+        'OU EX'
+        'NON ET'
+        'NON OU'
+        'NON OU EX'
+        'SECURITE'
+        'MEMOIRE'
+      )
+      OnChange = ComboBox1Change
+      Style = csDropDownList
+      TabOrder = 0
+    end
+  end
+  object StringGrid1: TStringGrid
+    Left = 16
+    Height = 129
+    Top = 200
+    Width = 137
+    ColCount = 3
+    DefaultColWidth = 32
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRowSelect]
+    RowCount = 3
+    TabOrder = 1
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    ColWidths = (
+      31
+      31
+      32
+    )
+  end
+  object out: TrmLed
+    Left = 144
+    Height = 16
+    Top = 73
+    Width = 19
+    BGColor = clSilver
+    BorderColor = clBlack
+    LedOnColor = clLime
+    LedOffColor = clGreen
+    Border = btRaised
+    BorderMargin = 3
+    LedOn = False
+  end
+  object in1: TrmSwitch
+    Left = 24
+    Height = 32
+    Top = 45
+    Width = 17
+    SwitchStyle = ssSlideButton
+    BGColor = clBlack
+    BorderColor = clBlack
+    ButtonBorderColor = clBlack
+    DisabledColor = clSilver
+    LitOnColor = clRed
+    LitOffColor = clMaroon
+    Border = btLowered
+    ButtonBorder = btRaised
+    HorzMargin = 2
+    VertMargin = 2
+    SwitchOn = False
+    Orientation = soVertical
+    OnChange = in1Change
+  end
+  object in2: TrmSwitch
+    Left = 24
+    Height = 32
+    Top = 89
+    Width = 17
+    SwitchStyle = ssSlideButton
+    BGColor = clBlack
+    BorderColor = clBlack
+    ButtonBorderColor = clBlack
+    DisabledColor = clSilver
+    LitOnColor = clRed
+    LitOffColor = clMaroon
+    Border = btLowered
+    ButtonBorder = btRaised
+    HorzMargin = 2
+    VertMargin = 2
+    SwitchOn = False
+    Orientation = soVertical
+    OnChange = in1Change
+  end
+  object RichEdit1: TRichMemo
+    Left = 408
+    Height = 546
+    Top = 0
+    Width = 463
+    Align = alRight
+    HideSelection = False
+    Lines.Strings = (
+      'RichEdit1'
+    )
+    ScrollBars = ssVertical
+    TabOrder = 2
+    ZoomFactor = 1
+  end
+  object logicGraph: TrmDGraph
+    Left = 16
+    Height = 158
+    Top = 360
+    Width = 353
+    NumTraces = 3
+    Spacing = 10
+    TraceLabels = 'in1;in2;out'
+    GridType = gtBoth
+    ValuePosition = vpPixels
+    BGColor = clSilver
+    CTL3D = True
+    Border = btRaised
+    GraphColor = clBlack
+    GridColor = clGreen
+    TracesColor = clAqua
+    LeftMargin = 55
+    RightMargin = 4
+    TopMargin = 4
+    BottomMargin = 4
+    RightOffset = 2
+    HorzMinVal = 0
+    HorzMaxVal = 500
+    HorzUnit = 'ms'
+    HorzDiv = 1
+    HorzDecNum = 0
+    ScaleText = [stLeft]
+    TextColor = clBlue
+    TextSize = 8
+    MaxItems = 0
+  end
+  object Label6: TLabel
+    Left = 2
+    Height = 13
+    Top = 53
+    Width = 21
+    Caption = 'IN1'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 2
+    Height = 13
+    Top = 96
+    Width = 21
+    Caption = 'IN2'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 165
+    Height = 13
+    Top = 76
+    Width = 27
+    Caption = 'OUT'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object IdleTimer1: TIdleTimer
+    Interval = 100
+    OnTimer = IdleTimer1Timer
+    left = 344
+    top = 304
+  end
+  object MainMenu1: TMainMenu
+    left = 24
+    top = 144
+    object MenuItem1: TMenuItem
+      Caption = '&Edition'
+      object MenuItem2: TMenuItem
+        Caption = '&Configuration'
+        OnClick = MenuItem2Click
+      end
+    end
+  end
+end

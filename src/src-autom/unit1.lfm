@@ -1,0 +1,816 @@
+object Form1: TForm1
+  Left = 741
+  Height = 520
+  Top = 133
+  Width = 766
+  Caption = 'AUTOMATE - Auteur: sebastien.tack@ac-caen.fr, sur une idée de Phillipe BOUET en version 16 bits'
+  ClientHeight = 520
+  ClientWidth = 766
+  Color = clTeal
+  OnCreate = FormCreate
+  LCLVersion = '1.6.2.0'
+  object Shape8: TShape
+    Left = 464
+    Height = 107
+    Top = 208
+    Width = 10
+    Brush.Color = clBackground
+  end
+  object Panel8: TPanel
+    Left = 8
+    Height = 32
+    Top = 248
+    Width = 482
+    BevelOuter = bvNone
+    Caption = '       INTERFACE'
+    ClientHeight = 32
+    ClientWidth = 482
+    Color = clYellow
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 10
+    OnClick = Panel1Click
+    object ledE1: TShape
+      Left = 11
+      Height = 16
+      Top = 8
+      Width = 26
+      Brush.Color = clRed
+      Shape = stCircle
+    end
+    object ledE2: TShape
+      Left = 68
+      Height = 16
+      Top = 8
+      Width = 26
+      Brush.Color = clRed
+      Shape = stCircle
+    end
+    object ledE3: TShape
+      Left = 125
+      Height = 16
+      Top = 8
+      Width = 26
+      Brush.Color = clRed
+      Shape = stCircle
+    end
+    object ledE4: TShape
+      Left = 181
+      Height = 16
+      Top = 8
+      Width = 26
+      Brush.Color = clRed
+      Shape = stCircle
+    end
+    object ledS1: TShape
+      Left = 303
+      Height = 16
+      Top = 8
+      Width = 26
+      Brush.Color = clRed
+      Shape = stCircle
+    end
+    object ledS2: TShape
+      Left = 355
+      Height = 16
+      Top = 8
+      Width = 26
+      Brush.Color = clRed
+      Shape = stCircle
+    end
+    object ledS3: TShape
+      Left = 399
+      Height = 16
+      Top = 8
+      Width = 26
+      Brush.Color = clRed
+      Shape = stCircle
+    end
+    object ledS4: TShape
+      Left = 448
+      Height = 16
+      Top = 8
+      Width = 26
+      Brush.Color = clRed
+      Shape = stCircle
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 512
+    Height = 372
+    Top = 16
+    Width = 246
+    ActivePage = TabSheet1
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Utilisation'
+      ClientHeight = 344
+      ClientWidth = 238
+      OnContextPopup = TabSheet1ContextPopup
+      object Memo1: TMemo
+        Left = 0
+        Height = 344
+        Top = 0
+        Width = 238
+        Align = alClient
+        Lines.Strings = (
+          '1°) ENTREZ LA CONDITION A PARTIR DES '
+          'ENTREES '
+          '(de E1 à E4) CORREPONDANTES AUX '
+          'DIVERS CAPTEURS '
+          'DANS LA ZONE SI:'
+          ''
+          '2°) ENTREZ LES SORTIES (S1 à S4) QUI '
+          'DOIVENT'
+          'ETRE ACTIONNES'
+          ''
+          '3°) LANCER L''AUTOMATE A L''AIDE DU '
+          'BOUTON'
+          'RUN'
+          ''
+          '4°) MANIPULEZ LES ENTREES EN '
+          'CLIQUANT '
+          'SUR LES IMAGES ET OBSERVEZ LE '
+          'RESULTAT'
+          'EN SORTIE'
+        )
+        ReadOnly = True
+        TabOrder = 0
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Si:'
+      ClientHeight = 344
+      ClientWidth = 238
+      object Memo2: TMemo
+        Left = 0
+        Height = 344
+        Top = 0
+        Width = 238
+        Align = alClient
+        ReadOnly = True
+        TabOrder = 0
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Alors:'
+      ClientHeight = 344
+      ClientWidth = 238
+      object Memo3: TMemo
+        Left = 0
+        Height = 344
+        Top = 0
+        Width = 238
+        Align = alClient
+        ReadOnly = True
+        TabOrder = 0
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 8
+    Height = 32
+    Top = 0
+    Width = 484
+    BevelOuter = bvNone
+    Caption = 'PARTIE COMMANDE'
+    Color = clAqua
+    Font.Height = -21
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 1
+    OnClick = Panel1Click
+  end
+  object Button1: TButton
+    Left = 512
+    Height = 39
+    Top = 400
+    Width = 104
+    Caption = 'Run'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 624
+    Height = 39
+    Top = 400
+    Width = 104
+    Caption = 'Stop'
+    Enabled = False
+    OnClick = Button2Click
+    TabOrder = 3
+  end
+  object Panel2: TPanel
+    Left = 8
+    Height = 168
+    Top = 32
+    Width = 488
+    ClientHeight = 168
+    ClientWidth = 488
+    Color = clMenuHighlight
+    ParentColor = False
+    TabOrder = 4
+    object Label1: TLabel
+      Left = 40
+      Height = 28
+      Top = 79
+      Width = 28
+      Caption = 'SI: '
+      Color = clDefault
+      Font.Height = -20
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object cond: TEdit
+      Left = 72
+      Height = 29
+      Top = 78
+      Width = 120
+      Alignment = taCenter
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      Text = 'E2'
+    end
+    object Label2: TLabel
+      Left = 288
+      Height = 28
+      Top = 79
+      Width = 68
+      Caption = 'ALORS:'
+      Color = clDefault
+      Font.Height = -20
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object ordres: TEdit
+      Left = 360
+      Height = 29
+      Top = 79
+      Width = 120
+      Alignment = taCenter
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      Text = 'S2S3'
+    end
+  end
+  object Panel3: TPanel
+    Left = 8
+    Height = 32
+    Top = 456
+    Width = 490
+    BevelOuter = bvNone
+    Caption = 'PARTIE OPERATIVE'
+    Color = clFuchsia
+    Font.Height = -21
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 5
+    OnClick = Panel1Click
+  end
+  object Panel4: TPanel
+    Left = 8
+    Height = 24
+    Top = 184
+    Width = 232
+    BevelOuter = bvNone
+    Caption = 'SAISIE'
+    Color = clAqua
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 6
+    OnClick = Panel1Click
+  end
+  object Panel5: TPanel
+    Left = 288
+    Height = 24
+    Top = 184
+    Width = 208
+    BevelOuter = bvNone
+    Caption = 'SORTIE'
+    Color = clAqua
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 7
+    OnClick = Panel1Click
+  end
+  object Panel6: TPanel
+    Left = 200
+    Height = 32
+    Top = 40
+    Width = 114
+    BevelOuter = bvNone
+    Caption = 'TRAITEMENT'
+    Color = clAqua
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 8
+    OnClick = Panel1Click
+  end
+  object Panel7: TPanel
+    Left = 8
+    Height = 145
+    Top = 312
+    Width = 490
+    ClientHeight = 145
+    ClientWidth = 490
+    Color = clFuchsia
+    ParentColor = False
+    TabOrder = 9
+    OnClick = Panel7Click
+    object Panel9: TPanel
+      Left = 8
+      Height = 24
+      Top = 112
+      Width = 210
+      BevelOuter = bvNone
+      Caption = 'CAPTEURS'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = Panel1Click
+    end
+    object Panel10: TPanel
+      Left = 14
+      Height = 24
+      Top = 8
+      Width = 18
+      BevelOuter = bvNone
+      Caption = 'E1'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 1
+      OnClick = Panel1Click
+    end
+    object Panel11: TPanel
+      Left = 72
+      Height = 24
+      Top = 8
+      Width = 18
+      BevelOuter = bvNone
+      Caption = 'E2'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 2
+      OnClick = Panel1Click
+    end
+    object Panel12: TPanel
+      Left = 184
+      Height = 24
+      Top = 8
+      Width = 18
+      BevelOuter = bvNone
+      Caption = 'E4'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 3
+      OnClick = Panel1Click
+    end
+    object Panel13: TPanel
+      Left = 128
+      Height = 24
+      Top = 8
+      Width = 18
+      BevelOuter = bvNone
+      Caption = 'E3'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 4
+      OnClick = Panel1Click
+    end
+    object Panel14: TPanel
+      Left = 272
+      Height = 24
+      Top = 112
+      Width = 202
+      BevelOuter = bvNone
+      Caption = 'ACTIONNEURS'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 5
+      OnClick = Panel1Click
+    end
+    object Panel15: TPanel
+      Left = 308
+      Height = 24
+      Top = 8
+      Width = 18
+      BevelOuter = bvNone
+      Caption = 'S1'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 6
+      OnClick = Panel1Click
+    end
+    object Panel16: TPanel
+      Left = 359
+      Height = 24
+      Top = 8
+      Width = 18
+      BevelOuter = bvNone
+      Caption = 'S2'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 7
+      OnClick = Panel1Click
+    end
+    object Panel17: TPanel
+      Left = 403
+      Height = 24
+      Top = 8
+      Width = 18
+      BevelOuter = bvNone
+      Caption = 'S3'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 8
+      OnClick = Panel1Click
+    end
+    object Panel18: TPanel
+      Left = 452
+      Height = 24
+      Top = 8
+      Width = 18
+      BevelOuter = bvNone
+      Caption = 'S4'
+      Color = clSilver
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 9
+      OnClick = Panel1Click
+    end
+    object imgE1: TImage
+      Tag = 1
+      Left = 8
+      Height = 56
+      Top = 40
+      Width = 48
+      OnClick = imgE1Click
+      Picture.Data = {
+        07544269746D617076020000424D900200000000000076000000280000002000
+        0000200000000100040000000000000200000000000000000000000000000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00DDDDD000DDDDD000DDDDD000DDDDDDDDDDDDD0F0DDDDD0F0DDDDD0F0DDDD
+        DDDDDDDDD0F0DDDDD0F0DDDDD0F0DDDDDDDDDDD00000000000000000000000DD
+        DDDDDDD088888888888888888888000DDDDDDDD0888888888888888888880700
+        DDDDDDD08888888888888888888807700DDDDDD0888888888888888888880777
+        0DDDDDD08888888888888888888807770DDDDDD0888888888888888888880777
+        0DDDDDD08888888888888888888807770DDDDDD0888888888888888888880777
+        0DDDDDD08888888888888888888807770DDDDDD0000000000000000000000777
+        0DDDDDD00777007777777777777770770DDDDDDD00770F000777777777777707
+        0DDDDDDDD00700FFF0007777777777700DDDDDDDDD0000000FFF000000000000
+        0DDDDDDDDDDDDDDDD000FFF000DDDDDDDDDDDDDDDDDDDDDDDDDD000FFF000DDD
+        DDDDDDDDDDDDDDDDDDDDDDD000FFF00DDDDDDDDDDDDDDDDDDDDDDDDDDD000F0D
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDD00DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDD
+      }
+      Stretch = True
+    end
+    object imgE2: TImage
+      Tag = 2
+      Left = 56
+      Height = 56
+      Top = 40
+      Width = 48
+      OnClick = imgE1Click
+      Picture.Data = {
+        07544269746D617076020000424D900200000000000076000000280000002000
+        0000200000000100040000000000000200000000000000000000000000000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00DDD00000000000000000000000000DDDDD0EEEEEEEEEEEEEEEEEEEEEEEEE
+        E0DDDD0EEEEEEEEEEEEEEEEEE000000EE0DDDD0EEEEEEE00000000000EEEEEEE
+        E0DD0000000000EEEEEEEEEEEE0000000000DD0EEEEEEEE00000000000EEEEEE
+        E0DDDD0EE000000EEEEEEEEEEEEEEEEEE0DDDD0EEEEEEEEEEEEEEEEEEEEEEEEE
+        E0DDDDD00000000000000000000000000DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDD
+      }
+      Stretch = True
+    end
+    object imgE3: TImage
+      Tag = 3
+      Left = 112
+      Height = 56
+      Top = 40
+      Width = 48
+      OnClick = imgE1Click
+      Picture.Data = {
+        07544269746D617076020000424D900200000000000076000000280000002000
+        0000200000000100040000000000000200000000000000000000000000000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00DDDDDD0000DDDDDDDD0000DDDDDDDDDDDDDDDD0770DDDDDDDD0770DDDDDD
+        DDDDDDDDDD0770DDDDDDDD0770DDDDDDDDDD000000000000000000000000000D
+        DDDD0888888888888888888888888800DDDD0888888888888888888888888807
+        0DDD088888888888888888888888880770DD0888888888888888888888888807
+        70DD0888888888888888888888888807770D0000000088000000008800000000
+        7770D0888880880088888088007777770770DD08888088070888808807077777
+        7070DD088880880708888088070777777070DDD0888088077088808807707777
+        7700DDDD0000880777000088077700000000DDDDDDD08807770DD08807770DDD
+        DDDDDDDDDDD08807770DD08807770DDDDDDDDDDDDDD08807770DD08807770DDD
+        DDDDDDDDDDD08807770DD08807770DDDDDDDDDDDDDD08807770DD08807770DDD
+        DDDDDDDDDDD00007770DD00007770DDDDDDDDDDDDDDD0770770DDD0770770DDD
+        DDDDDDDDDDDDD077070DDDD077070DDDDDDDDDDDDDDDDD07700DDDDD07700DDD
+        DDDDDDDDDDDDDDD0000DDDDDD0000DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDD
+      }
+      Stretch = True
+    end
+    object imgE4: TImage
+      Tag = 4
+      Left = 168
+      Height = 56
+      Top = 40
+      Width = 48
+      OnClick = imgE1Click
+      Picture.Data = {
+        07544269746D617076020000424D900200000000000076000000280000002000
+        0000200000000100040000000000000200000000000000000000000000000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00D000000000DDDDDDDDDDDD000000000DDDDDDDDDD0DDDDDDDDDDDD0DDDDD
+        DDDDDDDDDDDDD0D0000000000D0DDDDDDDDDDDDDDDDD0005555555555000DDDD
+        DDDDDDDDDD00555555555555555500DDDDDDDDDDD0555000000000000005550D
+        DDDDDDDD055555555555555555555550DDDDDDDD055550000000000000055550
+        DDDDDDDD055555555555555555555550DDDDDDDDD0555000000000000005550D
+        DDDDDDDDDD00555555555555555500DDDDDDDDDDDDDD0005555555555000DDDD
+        DDDDDDDDDDDDDDD0000000000DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDD
+      }
+      Stretch = True
+    end
+    object imgS1: TImage
+      Left = 296
+      Height = 56
+      Top = 40
+      Width = 48
+      OnClick = imgE4Click
+      Picture.Data = {
+        07544269746D617076020000424D900200000000000076000000280000002000
+        0000200000000100040000000000000200000000000000000000000000000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD0000000000000000000000000
+        0DDDDDD0DDDDDDDDDDDDDDDDDDDDDDDD0DDDDDD0DDDDDDDDDDDDDDDDDDDDDDDD
+        0DDD0000DDDDDDDDDDDDDDDDDDDDDDDD0000DDD0DDDDDDDDDDDDDDDDDDDDDDDD
+        0DDDDDD0DDDDDDDDDDDDDDDDDDDDDDDD0DDDDDD0000000000000000000000000
+        0DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDD
+      }
+      Stretch = True
+    end
+    object imgS2: TImage
+      Left = 344
+      Height = 56
+      Top = 40
+      Width = 48
+      OnClick = imgE4Click
+      Picture.Data = {
+        07544269746D617076020000424D900200000000000076000000280000002000
+        0000200000000100040000000000000200000000000000000000000000000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00DDDDDDDDDDDDDD00000DDDDDDDDDDDDDDDDDDDDDDDDD000000000DDDDDDD
+        DDDDDDDDDDDDDDD08888888880DDDDDDDDDDDDDDDDDDDDD00000000880DDDDDD
+        DDDDDDDDDDDDDDD08888888880DDDDDDDDDDDDDDDDDDDDD00000008880DDDDDD
+        DDDDDDDDDDDDDDD08888888880DDDDDDDDDDDDDDDDDDDDD00000088880DDDDDD
+        DDDDDDDDDDDDDDD08888888880DDDDDDDDDDDDDDDDDDDDD00000888880DDDDDD
+        DDDDDDDDDDDDDDD08888888880DDDDDDDDDDDDDDDDDDDDD08000000080DDDDDD
+        DDDDDDDDDDDDDD000FF0F0FF000DDDDDDDDDDDDDDDDDD0FFFF0FFF0FFFF0DDDD
+        DDDDDDDDDDD00FFFFF0FFF0FFFFF00DDDDDDDDDDDD0FFFFFFF0FFF0FFFFFFF0D
+        DDDDDDDDDD0FFFFFFF0FFF0FFFFFFF0DDDDDDDDDD0FFFFFFF0FFFFF0FFFFFFF0
+        DDDDDDDDD0FFFFFFF0FFFFF0FFFFFFF0DDDDDDDDD0FFFFFFF0FFFFF0FFFFFFF0
+        DDDDDDDDD0FFFFFFFFFFFFFFFFFFFFF0DDDDDDDDD0FFFFFFFFFFFFFFFFFFFFF0
+        DDDDDDDDD0FFFFFFFFFFFFFFFFFFFFF0DDDDDDDDDD0FFFFFFFFFFFFFFFFFFF0D
+        DDDDDDDDDD0FFFFFFFFFFFFFFFFFFF0DDDDDDDDDDDD00FFFFFFFFFFFFFFF00DD
+        DDDDDDDDDDDDD0FFFFFFFFFFFFF0DDDDDDDDDDDDDDDDDD000FFFFFFF000DDDDD
+        DDDDDDDDDDDDDDDDD0000000DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDD
+      }
+      Stretch = True
+    end
+    object imgS3: TImage
+      Left = 392
+      Height = 56
+      Top = 40
+      Width = 48
+      OnClick = imgE4Click
+      Picture.Data = {
+        07544269746D617076020000424D900200000000000076000000280000002000
+        0000200000000100040000000000000200000000000000000000000000000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDD00000000000000000DDDDDDDDDDDDDD088888888888888880DDDDDDDDDD
+        DDDD08888888888888888000DDDDDDDDDDDD080088888888888880FF0DDDDDDD
+        DDDD080088888888888880FF0DDDDDDDDDDD08888888888888888000DDDDDDDD
+        DDDD088888888888888880DDDDDDDDDDDDDDD00000000000000000DDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDD
+      }
+      Stretch = True
+    end
+    object imgS4: TImage
+      Left = 440
+      Height = 56
+      Top = 40
+      Width = 48
+      OnClick = imgE4Click
+      Picture.Data = {
+        07544269746D617076020000424D900200000000000076000000280000002000
+        0000200000000100040000000000000200000000000000000000000000000000
+        000000000000000080000080000000808000800000008000800080800000C0C0
+        C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF00DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD00000000DDDDDDDD
+        DDDDDDDDDDDDD00000000000000DDDDDDDDDDDDDDDDD0000DDDDDDDD0000DDDD
+        DDDDDDDDDD000DDDDDDDDDDDDDD000DDDDDDDDDDD000DDDDDDDDDDDDDDDD000D
+        DDDDDDDD000DDDDDDDDDDDDDDDDDD000DDDDDDDD00DDDDDDDDDDDDDDDDDDDD00
+        DDDDDDD00DDDDDDDDDDDDDDDDDDDDDD00DDDDD00DDDDDDDDDDDDDDDDDDDDDDDD
+        00DDDD00DDDDDDDDDDDDDDDDDDDDDDDD00DDDD00DDDDDD000DD0DD00000DDDDD
+        00DDD00DDDDDDDD0DDD0DDD000DDDDDDD00DD00DDDDDDDD0DD000DD000DDDDDD
+        D00DD00DDDDDDDD0DD000DD000DDDDDDD00D000DDDDDDDD0DD000DD000DDDDDD
+        D000000DDDDDDDD0D000D0D000DDDDDDD000D00DDDDDDDD0D00DD0D000DDDDDD
+        D00DD00DDDDDDDD0D00DD0D000DDDDDDD00DD00DDDDDDDD0000DDD0000DDDDDD
+        D00DDD00DDDDDDD000DDDDD000DDDDDD00DDDD00DDDDDD0000DDDDD0000DDDDD
+        00DDDD00DDDDDDDDDDDDDDDDDDDDDDDD00DDDDD00DDDDDDDDDDDDDDDDDDDDDD0
+        0DDDDDDD00DDDDDDDDDDDDDDDDDDDD00DDDDDDDD000DDDDDDDDDDDDDDDDDD000
+        DDDDDDDDD000DDDDDDDDDDDDDDDD000DDDDDDDDDDD000DDDDDDDDDDDDDD000DD
+        DDDDDDDDDDDD0000DDDDDDDD0000DDDDDDDDDDDDDDDDD00000000000000DDDDD
+        DDDDDDDDDDDDDDDD00000000DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+        DDDD
+      }
+      Stretch = True
+    end
+  end
+  object shape1: TShape
+    Left = 27
+    Height = 107
+    Top = 208
+    Width = 10
+    Brush.Color = clBackground
+  end
+  object Shape2: TShape
+    Left = 84
+    Height = 107
+    Top = 208
+    Width = 10
+    Brush.Color = clBackground
+  end
+  object Shape3: TShape
+    Left = 141
+    Height = 107
+    Top = 208
+    Width = 10
+    Brush.Color = clBackground
+  end
+  object Shape4: TShape
+    Left = 197
+    Height = 107
+    Top = 208
+    Width = 10
+    Brush.Color = clBackground
+  end
+  object Shape5: TShape
+    Left = 320
+    Height = 107
+    Top = 208
+    Width = 10
+    Brush.Color = clBackground
+  end
+  object Shape6: TShape
+    Left = 370
+    Height = 107
+    Top = 208
+    Width = 10
+    Brush.Color = clBackground
+  end
+  object Shape7: TShape
+    Left = 416
+    Height = 107
+    Top = 208
+    Width = 10
+    Brush.Color = clBackground
+  end
+  object Button3: TButton
+    Left = 512
+    Height = 39
+    Top = 448
+    Width = 104
+    Caption = 'Configuration E/S'
+    OnClick = Button3Click
+    TabOrder = 11
+  end
+  object Button4: TButton
+    Left = 624
+    Height = 39
+    Top = 447
+    Width = 111
+    Caption = 'ConfiguartionCarte'
+    OnClick = Button4Click
+    TabOrder = 12
+  end
+  object Timer1: TIdleTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = Timer1Timer
+    left = 728
+    top = 464
+  end
+end
