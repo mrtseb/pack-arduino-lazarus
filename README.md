@@ -1,2 +1,2 @@
 # pack-arduino-lazarus
-logiciels lazarus pour experimentations avec Ardunio Groove
+logiciels lazarus pour experimentations avec Arduino Groove
