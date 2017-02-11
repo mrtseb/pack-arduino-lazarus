@@ -139,6 +139,20 @@ if self.in1.SwitchOn then s:=s+'1' else s:=s+'0';
 if self.in2.SwitchOn then s:=s+'1' else s:=s+'0';
 if self.out.LedOn then s:=s+'1' else s:=s+'0';
 self.logicGraph.AddValues(s,true);
+
+try
+
+
+    if (form2.CheckBox1.Checked) then exit;
+    if out.LedOn then form2.serial.WriteData(form2.cb_out.Text[2]+'-255.'+chr(13)+chr(10)) else form2.serial.WriteData(form2.cb_out.Text[2]+'-'+'0'+'.'+chr(13)+chr(10));
+
+   except
+     on E : Exception do
+     begin
+       ShowMessage('Exception message = '+E.Message);
+     end;
+   end;
+
 end;
 
 procedure TForm1.MenuItem2Click(Sender: TObject);

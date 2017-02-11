@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, PythonEngine, PythonGUIInputOutput, SdpoSerial, Registry, unit1;
+  ExtCtrls, PythonEngine, PythonGUIInputOutput, SdpoSerial, Registry;
 
 type
 
@@ -51,7 +51,7 @@ var
   form2: Tform2;
 
 implementation
-
+Uses unit1;
 {$R *.lfm}
 
 { Tform2 }

@@ -1,10 +1,10 @@
 object form2: Tform2
   Left = 828
-  Height = 203
+  Height = 205
   Top = 237
   Width = 262
   Caption = 'Configuration'
-  ClientHeight = 203
+  ClientHeight = 205
   ClientWidth = 262
   OnCreate = FormCreate
   LCLVersion = '1.6.2.0'
@@ -157,9 +157,9 @@ object form2: Tform2
     TabOrder = 6
   end
   object Memo1: TMemo
-    Left = 18
+    Left = 16
     Height = 106
-    Top = 230
+    Top = 232
     Width = 177
     Lines.Strings = (
       'Memo1'
@@ -168,12 +168,13 @@ object form2: Tform2
     Visible = False
   end
   object Memo2: TMemo
-    Left = 14
+    Left = 18
     Height = 93
-    Top = 232
+    Top = 344
     Width = 181
     OnChange = Memo2Change
     TabOrder = 8
+    Visible = False
   end
   object test: TLabel
     Left = 208

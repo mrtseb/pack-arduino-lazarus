@@ -143,9 +143,8 @@ self.logicGraph.AddValues(s,true);
 try
 
 
-    if (form2.CheckBox1.Checked) then exit;
-    if out.LedOn then form2.serial.WriteData(form2.cb_out.Text[2]+'-255.'+chr(13)+chr(10));
-    if not out.LedOn  then form2.serial.WriteData(form2.cb_out.Text[2]+'-'+'0'+'.'+chr(13)+chr(10));
+    if (not form2.CheckBox1.Checked) then exit;
+    if out.LedOn then form2.serial.WriteData(form2.cb_out.Text[2]+'-255.'+chr(13)+chr(10)) else form2.serial.WriteData(form2.cb_out.Text[2]+'-'+'0'+'.'+chr(13)+chr(10));
 
    except
      on E : Exception do
