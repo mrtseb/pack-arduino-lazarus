@@ -115,6 +115,7 @@ begin
             (form1.imgE1 as Timage).Picture.LoadFromFile(s);
 
          end else begin
+            form1.entrees[1]:=false;
             s:=path+'img\'+form1.p_entrees[(form1.imgE1 as Timage).tag]+'0.bmp';
             (form1.imgE1 as Timage).Picture.LoadFromFile(s);
          end;
@@ -126,6 +127,7 @@ begin
             (form1.imgE2 as Timage).Picture.LoadFromFile(s);
 
          end else begin
+            form1.entrees[2]:=false;
             s:=path+'img\'+form1.p_entrees[(form1.imgE2 as Timage).tag]+'0.bmp';
             (form1.imgE2 as Timage).Picture.LoadFromFile(s);
          end;
@@ -137,6 +139,7 @@ begin
             (form1.imgE3 as Timage).Picture.LoadFromFile(s);
 
          end else begin
+            form1.entrees[3]:=false;
             s:=path+'img\'+form1.p_entrees[(form1.imgE3 as Timage).tag]+'0.bmp';
             (form1.imgE3 as Timage).Picture.LoadFromFile(s);
          end;
@@ -149,6 +152,7 @@ begin
             (form1.imgE4 as Timage).Picture.LoadFromFile(s);
 
          end else begin
+            form1.entrees[4]:=false;
             s:=path+'img\'+form1.p_entrees[(form1.imgE4 as Timage).tag]+'0.bmp';
             (form1.imgE4 as Timage).Picture.LoadFromFile(s);
          end;
@@ -208,6 +212,7 @@ end;
 procedure Tform2.btn_testClick(Sender: TObject);
 begin
   try
+    if  self.cb_com.text='' then exit;
     serial.Device:=self.cb_com.text;
     serial.Active:=true;
     //self.caption:=self.cb_out0.Text[2];

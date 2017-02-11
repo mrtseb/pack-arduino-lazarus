@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, PythonEngine, PythonGUIInputOutput, SdpoSerial, Registry, unit1;
+  ExtCtrls, PythonEngine, PythonGUIInputOutput, SdpoSerial, Registry;
 
 type
 
@@ -42,14 +42,16 @@ type
     a0,a1,a2,a3:string;
   public
     { public declarations }
+    ready: boolean;
     procedure analyse;
+
   end;
 
 var
   form2: Tform2;
 
 implementation
-
+Uses unit1;
 {$R *.lfm}
 
 { Tform2 }
@@ -119,14 +121,15 @@ end;
 
 procedure Tform2.FormCreate(Sender: TObject);
 begin
-  form2.memo1.Lines.LoadFromFile('config0.cfg');
-  form2.CheckBox1.checked :=( form2.memo1.lines[0] = '1' );
-  form2.cb_com.Text:=form2.memo1.lines[1];
-  form2.cb_in1.Text:=form2.memo1.lines[2];
-  form2.cb_in2.Text:=form2.memo1.lines[3];
-  form2.cb_out.Text:=form2.memo1.lines[4];
-  form2.btn_test.Click;
-  self.IdleTimer1.Enabled:=self.CheckBox1.Checked;
+  memo1.Lines.LoadFromFile('config0.cfg');
+  CheckBox1.checked :=( form2.memo1.lines[0] = '1' );
+  cb_com.Text:=form2.memo1.lines[1];
+  cb_in1.Text:=form2.memo1.lines[2];
+  cb_in2.Text:=form2.memo1.lines[3];
+  cb_out.Text:=form2.memo1.lines[4];
+  btn_test.Click;
+  IdleTimer1.Enabled:=self.CheckBox1.Checked;
+  ready:=true;
 
 end;
 
@@ -157,6 +160,11 @@ end;
 
 procedure Tform2.btn_testClick(Sender: TObject);
 begin
+
+  if  cb_com.Text='' then begin
+    exit;
+  end;
+
   try
     serial.Device:=self.cb_com.text;
     serial.Active:=true;

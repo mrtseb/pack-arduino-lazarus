@@ -9,7 +9,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, rmLed, rmSwitch, rmDGraph, Grids, Menus,
-  RichMemo, RichMemoUtils, htmlview;
+  RichMemo, RichMemoUtils, htmlview, unit2;
 
 type
 
@@ -39,7 +39,7 @@ type
     Label4: TLabel;
     Image2: TImage;
     Label5: TLabel;
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+
     procedure IdleTimer1Timer(Sender: TObject);
 
     procedure MenuItem2Click(Sender: TObject);
@@ -61,7 +61,7 @@ var
   f,path:string;
 
 implementation
-uses unit2;
+
 {$IFnDEF FPC}
   {$IFnDEF FPC}
   {$IFnDEF FPC}
@@ -124,12 +124,11 @@ end;
   if self.ComboBox1.ItemIndex <>-1 then self.Image1.Picture.LoadFromFile(f);
   //self.Image2.Picture.LoadFromFile(path+'images\porte_rien.bmp');
 
-
   last:=self.out.LedOn;
 
-  if (form2.CheckBox1.Checked = false) then exit;
-  if self.out.LedOn then form2.serial.WriteData(form2.cb_out.Text[2]+'-255.'+chr(13)+chr(10));
-  if not self.out.LedOn  then form2.serial.WriteData(form2.cb_out.Text[2]+'-'+'0'+'.'+chr(13)+chr(10));
+
+
+
 end;
 
 procedure TForm1.IdleTimer1Timer(Sender: TObject);
@@ -140,10 +139,20 @@ if self.in1.SwitchOn then s:=s+'1' else s:=s+'0';
 if self.in2.SwitchOn then s:=s+'1' else s:=s+'0';
 if self.out.LedOn then s:=s+'1' else s:=s+'0';
 self.logicGraph.AddValues(s,true);
-end;
 
-procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-begin
+try
+
+
+    if (form2.CheckBox1.Checked) then exit;
+    if out.LedOn then form2.serial.WriteData(form2.cb_out.Text[2]+'-255.'+chr(13)+chr(10));
+    if not out.LedOn  then form2.serial.WriteData(form2.cb_out.Text[2]+'-'+'0'+'.'+chr(13)+chr(10));
+
+   except
+     on E : Exception do
+     begin
+       ShowMessage('Exception message = '+E.Message);
+     end;
+   end;
 
 end;
 
@@ -183,7 +192,6 @@ begin
   ordre:=1;
   if self.in1.SwitchOn then ordre:=ordre+1;
   if self.in2.SwitchOn then ordre:=ordre+2;
-
   StringGrid1.Row := ordre;
   update2;
 
@@ -208,7 +216,7 @@ for i:=1 to StringGrid1.RowCount-1 do
  LoadRTFFile( RichEdit1, path+'\notices\'+images[self.ComboBox1.itemindex]+'.rtf');
  if self.ComboBox1.ItemIndex <11 then self.Image2.Picture.LoadFromFile(path+'images\porte_'+images[self.ComboBox1.itemindex]+'.bmp');
  //self.in1Change(self);
- //update2;
+ update2;
 
 end;
 procedure TForm1.Button1Click(Sender: TObject);

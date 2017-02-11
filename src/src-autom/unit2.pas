@@ -212,6 +212,7 @@ end;
 procedure Tform2.btn_testClick(Sender: TObject);
 begin
   try
+    if  self.cb_com.text='' then exit;
     serial.Device:=self.cb_com.text;
     serial.Active:=true;
     //self.caption:=self.cb_out0.Text[2];

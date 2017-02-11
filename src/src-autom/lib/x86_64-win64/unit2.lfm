@@ -330,7 +330,6 @@ object form2: Tform2
     Parity = pNone
     FlowControl = fcNone
     StopBits = sbOne
-    Device = 'COM1'
     OnRxData = serialRxData
     left = 400
     top = 8

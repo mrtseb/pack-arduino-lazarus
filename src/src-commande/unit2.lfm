@@ -1,11 +1,11 @@
 object form2: Tform2
-  Left = 336
+  Left = 828
   Height = 203
-  Top = 297
-  Width = 325
+  Top = 237
+  Width = 262
   Caption = 'Configuration'
   ClientHeight = 203
-  ClientWidth = 325
+  ClientWidth = 262
   OnCreate = FormCreate
   LCLVersion = '1.6.2.0'
   object CheckBox1: TCheckBox
