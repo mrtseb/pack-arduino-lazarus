@@ -47,7 +47,7 @@ type
     { public declarations }
     ready: boolean;
     procedure analyse;
-    procedure lire_com;
+
 
   end;
 
@@ -55,7 +55,7 @@ var
   form2: Tform2;
 
 implementation
-Uses unit1;
+Uses unit1,utils_serial;
 {$R *.lfm}
 
 { Tform2 }
@@ -140,35 +140,14 @@ begin
   ready:=true;
 
 end;
-procedure Tform2.lire_com;
-var
-  reg: TRegistry;
-  st: Tstrings;
-  i: Integer;
-begin
-  reg := TRegistry.Create;
-  try
-    reg.RootKey := HKEY_LOCAL_MACHINE;
-    reg.OpenKeyReadOnly('hardware\devicemap\serialcomm');
-    st := TstringList.Create;
-    cb_com.clear;
-    try
-      reg.GetValueNames(st);
-      for i := 0 to st.Count - 1 do
-        cb_com.Items.Add(reg.Readstring(st.strings[i]));
-    finally
-      st.Free;
-    end;
-    reg.CloseKey;
-  finally
-    reg.Free;
-  end;
-end;
+
 
 
 procedure Tform2.FormShow(Sender: TObject);
 begin
-  self.lire_com;
+  cb_com.Clear;
+  self.cb_com.Items:=lire_com;
+
 end;
 
 procedure Tform2.IdleTimer1Timer(Sender: TObject);
@@ -220,7 +199,8 @@ end;
 
 procedure Tform2.btn_test1Click(Sender: TObject);
 begin
-  lire_com;
+  cb_com.Clear;
+  self.cb_com.Items:=lire_com;
 end;
 
 procedure Tform2.Button2Click(Sender: TObject);
