@@ -1,0 +1,17 @@
+- Utilisation du simulateur -
+
+Ecrire une condition dans la 
+fenêtre "Si". 
+
+Ecrire dans la fenêtre "Alors" 
+l'action qui s'effectuera si la 
+condition est vraie.
+
+Cliquer sur RUN pour mettre 
+l'automate en marche.
+
+Cliquer sur les capteurs pour
+les activer ou les désactiver.
+
+MrT ;)
+sebastien.tack@ac-caen.fr

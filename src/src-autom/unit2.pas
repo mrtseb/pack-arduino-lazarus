@@ -184,7 +184,7 @@ begin
   cb_out1.Text:=form2.memo1.lines[7];
   cb_out2.Text:=form2.memo1.lines[8];
   cb_out3.Text:=form2.memo1.lines[9];
-  btn_test.Click;
+  //btn_test.Click;
   IdleTimer1.Enabled:=self.CheckBox1.Checked;
 
 

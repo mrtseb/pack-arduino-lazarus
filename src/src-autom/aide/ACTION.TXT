@@ -1,0 +1,14 @@
+Dans le cadre action "Alors", 
+tu dois écrire le nom d'une ou de 
+plusieurs sorties. Ces sorties 
+seront allumées quand la condition 
+Si deviendra vraie.
+
+Ex : S1
+Allume la sortie S1.
+
+Ex : S3 S4
+Allume les sorties S3 et S4.
+
+Ex : S1 S3 S4
+Allume les sorties S1, S3 et S4.
