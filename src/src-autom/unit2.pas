@@ -14,6 +14,7 @@ type
 
   Tform2 = class(TForm)
     btn_test: TButton;
+    btn_test1: TButton;
     Button2: TButton;
     cb_in3: TComboBox;
     cb_in4: TComboBox;
@@ -39,11 +40,13 @@ type
     Memo1: TMemo;
     Memo2: TMemo;
     serial: TSdpoSerial;
+    procedure btn_test1Click(Sender: TObject);
     procedure btn_testClick(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure CheckBox1Change(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
     procedure Label2Click(Sender: TObject);
     procedure Memo2Change(Sender: TObject);
@@ -54,6 +57,7 @@ type
   public
     { public declarations }
     procedure analyse;
+    procedure lire_com;
     procedure setoutput(num:integer; value:boolean);
   end;
 
@@ -168,9 +172,10 @@ end;
 procedure Tform2.FormCreate(Sender: TObject);
 begin
   memo1.clear;
+  if not fileexists('config.cfg') then exit;
   memo1.Lines.LoadFromFile('config.cfg');
   checkBox1.checked :=( form2.memo1.lines[0] = '1' );
-  cb_com.Text:=form2.memo1.lines[1];
+  //cb_com.Text:=form2.memo1.lines[1];
   cb_in1.Text:=form2.memo1.lines[2];
   cb_in2.Text:=form2.memo1.lines[3];
   cb_in3.Text:=form2.memo1.lines[4];
@@ -182,8 +187,39 @@ begin
   btn_test.Click;
   IdleTimer1.Enabled:=self.CheckBox1.Checked;
 
+
+
 end;
 
+procedure Tform2.FormShow(Sender: TObject);
+begin
+  lire_com;
+end;
+
+procedure Tform2.lire_com;
+var
+  reg: TRegistry;
+  st: Tstrings;
+  i: Integer;
+begin
+  reg := TRegistry.Create;
+  try
+    reg.RootKey := HKEY_LOCAL_MACHINE;
+    reg.OpenKeyReadOnly('hardware\devicemap\serialcomm');
+    st := TstringList.Create;
+    cb_com.clear;
+    try
+      reg.GetValueNames(st);
+      for i := 0 to st.Count - 1 do
+        cb_com.Items.Add(reg.Readstring(st.strings[i]));
+    finally
+      st.Free;
+    end;
+    reg.CloseKey;
+  finally
+    reg.Free;
+  end;
+end;
 procedure Tform2.IdleTimer1Timer(Sender: TObject);
 begin
   memo2.Clear;
@@ -225,6 +261,11 @@ begin
      end;
    end;
 
+end;
+
+procedure Tform2.btn_test1Click(Sender: TObject);
+begin
+  lire_com;
 end;
 
 procedure Tform2.Button2Click(Sender: TObject);

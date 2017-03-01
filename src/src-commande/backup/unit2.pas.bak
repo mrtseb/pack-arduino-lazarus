@@ -14,6 +14,7 @@ type
 
   Tform2 = class(TForm)
     btn_test: TButton;
+    btn_test1: TButton;
     Button2: TButton;
     CheckBox1: TCheckBox;
     IdleTimer1: TIdleTimer;
@@ -29,10 +30,12 @@ type
     Memo1: TMemo;
     Memo2: TMemo;
     serial: TSdpoSerial;
+    procedure btn_test1Click(Sender: TObject);
     procedure btn_testClick(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
     procedure Label2Click(Sender: TObject);
     procedure Memo2Change(Sender: TObject);
@@ -44,6 +47,7 @@ type
     { public declarations }
     ready: boolean;
     procedure analyse;
+    procedure lire_com;
 
   end;
 
@@ -121,9 +125,13 @@ end;
 
 procedure Tform2.FormCreate(Sender: TObject);
 begin
+
+
+
+
   memo1.Lines.LoadFromFile('config0.cfg');
   CheckBox1.checked :=( form2.memo1.lines[0] = '1' );
-  cb_com.Text:=form2.memo1.lines[1];
+  //cb_com.Text:=form2.memo1.lines[1];
   cb_in1.Text:=form2.memo1.lines[2];
   cb_in2.Text:=form2.memo1.lines[3];
   cb_out.Text:=form2.memo1.lines[4];
@@ -131,6 +139,36 @@ begin
   IdleTimer1.Enabled:=self.CheckBox1.Checked;
   ready:=true;
 
+end;
+procedure Tform2.lire_com;
+var
+  reg: TRegistry;
+  st: Tstrings;
+  i: Integer;
+begin
+  reg := TRegistry.Create;
+  try
+    reg.RootKey := HKEY_LOCAL_MACHINE;
+    reg.OpenKeyReadOnly('hardware\devicemap\serialcomm');
+    st := TstringList.Create;
+    cb_com.clear;
+    try
+      reg.GetValueNames(st);
+      for i := 0 to st.Count - 1 do
+        cb_com.Items.Add(reg.Readstring(st.strings[i]));
+    finally
+      st.Free;
+    end;
+    reg.CloseKey;
+  finally
+    reg.Free;
+  end;
+end;
+
+
+procedure Tform2.FormShow(Sender: TObject);
+begin
+  self.lire_com;
 end;
 
 procedure Tform2.IdleTimer1Timer(Sender: TObject);
@@ -178,6 +216,11 @@ begin
      end;
    end;
 
+end;
+
+procedure Tform2.btn_test1Click(Sender: TObject);
+begin
+  lire_com;
 end;
 
 procedure Tform2.Button2Click(Sender: TObject);

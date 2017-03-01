@@ -2,11 +2,12 @@ object form2: Tform2
   Left = 828
   Height = 205
   Top = 237
-  Width = 262
+  Width = 276
   Caption = 'Configuration'
   ClientHeight = 205
-  ClientWidth = 262
+  ClientWidth = 276
   OnCreate = FormCreate
+  OnShow = FormShow
   LCLVersion = '1.6.2.0'
   object CheckBox1: TCheckBox
     Left = 16
@@ -140,9 +141,9 @@ object form2: Tform2
   end
   object btn_test: TButton
     Left = 160
-    Height = 29
-    Top = 38
-    Width = 40
+    Height = 21
+    Top = 56
+    Width = 96
     Caption = '&Tester'
     OnClick = btn_testClick
     TabOrder = 5
@@ -165,7 +166,6 @@ object form2: Tform2
       'Memo1'
     )
     TabOrder = 7
-    Visible = False
   end
   object Memo2: TMemo
     Left = 18
@@ -177,12 +177,21 @@ object form2: Tform2
     Visible = False
   end
   object test: TLabel
-    Left = 208
+    Left = 162
     Height = 15
-    Top = 44
+    Top = 80
     Width = 31
     Caption = 'test ...'
     ParentColor = False
+  end
+  object btn_test1: TButton
+    Left = 160
+    Height = 21
+    Top = 32
+    Width = 96
+    Caption = '&Rafraichir'
+    OnClick = btn_test1Click
+    TabOrder = 9
   end
   object serial: TSdpoSerial
     Active = False
@@ -192,7 +201,7 @@ object form2: Tform2
     Parity = pNone
     FlowControl = fcNone
     StopBits = sbOne
-    Device = 'COM1'
+    Device = 'COM4'
     OnRxData = serialRxData
     left = 16
     top = 168
@@ -200,7 +209,7 @@ object form2: Tform2
   object IdleTimer1: TIdleTimer
     Interval = 500
     OnTimer = IdleTimer1Timer
-    left = 192
-    top = 88
+    left = 200
+    top = 232
   end
 end

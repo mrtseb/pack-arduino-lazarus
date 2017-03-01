@@ -7,6 +7,7 @@ object form2: Tform2
   ClientHeight = 297
   ClientWidth = 486
   OnCreate = FormCreate
+  OnShow = FormShow
   LCLVersion = '1.6.2.0'
   object CheckBox1: TCheckBox
     Left = 16
@@ -64,7 +65,7 @@ object form2: Tform2
   object Label2: TLabel
     Left = 20
     Height = 15
-    Top = 83
+    Top = 99
     Width = 40
     Caption = 'IN1 sur:'
     ParentColor = False
@@ -73,7 +74,7 @@ object form2: Tform2
   object Label3: TLabel
     Left = 20
     Height = 15
-    Top = 111
+    Top = 127
     Width = 40
     Caption = 'IN2 sur:'
     ParentColor = False
@@ -82,7 +83,7 @@ object form2: Tform2
   object Label4: TLabel
     Left = 216
     Height = 15
-    Top = 83
+    Top = 99
     Width = 52
     Caption = 'OUT1 sur:'
     ParentColor = False
@@ -91,7 +92,7 @@ object form2: Tform2
   object cb_in1: TComboBox
     Left = 69
     Height = 23
-    Top = 80
+    Top = 96
     Width = 84
     Enabled = False
     ItemHeight = 15
@@ -108,7 +109,7 @@ object form2: Tform2
   object cb_in2: TComboBox
     Left = 69
     Height = 23
-    Top = 108
+    Top = 124
     Width = 84
     Enabled = False
     ItemHeight = 15
@@ -125,7 +126,7 @@ object form2: Tform2
   object cb_out0: TComboBox
     Left = 272
     Height = 23
-    Top = 80
+    Top = 96
     Width = 84
     ItemHeight = 15
     ItemIndex = 3
@@ -143,8 +144,8 @@ object form2: Tform2
   end
   object btn_test: TButton
     Left = 160
-    Height = 29
-    Top = 38
+    Height = 23
+    Top = 56
     Width = 40
     Caption = '&Tester'
     OnClick = btn_testClick
@@ -181,7 +182,7 @@ object form2: Tform2
   object test: TLabel
     Left = 208
     Height = 15
-    Top = 44
+    Top = 56
     Width = 31
     Caption = 'test ...'
     ParentColor = False
@@ -189,7 +190,7 @@ object form2: Tform2
   object Label5: TLabel
     Left = 20
     Height = 15
-    Top = 139
+    Top = 155
     Width = 40
     Caption = 'IN3 sur:'
     ParentColor = False
@@ -198,7 +199,7 @@ object form2: Tform2
   object Label6: TLabel
     Left = 20
     Height = 15
-    Top = 167
+    Top = 183
     Width = 40
     Caption = 'IN4 sur:'
     ParentColor = False
@@ -207,7 +208,7 @@ object form2: Tform2
   object cb_in3: TComboBox
     Left = 69
     Height = 23
-    Top = 136
+    Top = 152
     Width = 84
     Enabled = False
     ItemHeight = 15
@@ -224,7 +225,7 @@ object form2: Tform2
   object cb_in4: TComboBox
     Left = 69
     Height = 23
-    Top = 164
+    Top = 180
     Width = 84
     Enabled = False
     ItemHeight = 15
@@ -241,7 +242,7 @@ object form2: Tform2
   object Label7: TLabel
     Left = 216
     Height = 15
-    Top = 111
+    Top = 127
     Width = 52
     Caption = 'OUT2 sur:'
     ParentColor = False
@@ -250,7 +251,7 @@ object form2: Tform2
   object cb_out1: TComboBox
     Left = 272
     Height = 23
-    Top = 108
+    Top = 124
     Width = 84
     ItemHeight = 15
     ItemIndex = 4
@@ -269,7 +270,7 @@ object form2: Tform2
   object Label8: TLabel
     Left = 216
     Height = 15
-    Top = 139
+    Top = 155
     Width = 52
     Caption = 'OUT3 sur:'
     ParentColor = False
@@ -278,7 +279,7 @@ object form2: Tform2
   object cb_out2: TComboBox
     Left = 272
     Height = 23
-    Top = 139
+    Top = 155
     Width = 84
     ItemHeight = 15
     ItemIndex = 5
@@ -297,7 +298,7 @@ object form2: Tform2
   object Label9: TLabel
     Left = 216
     Height = 15
-    Top = 167
+    Top = 183
     Width = 52
     Caption = 'OUT4 sur:'
     ParentColor = False
@@ -306,7 +307,7 @@ object form2: Tform2
   object cb_out3: TComboBox
     Left = 272
     Height = 23
-    Top = 164
+    Top = 180
     Width = 84
     ItemHeight = 15
     ItemIndex = 6
@@ -321,6 +322,15 @@ object form2: Tform2
     )
     TabOrder = 13
     Text = 'D8'
+  end
+  object btn_test1: TButton
+    Left = 160
+    Height = 21
+    Top = 32
+    Width = 96
+    Caption = '&Rafraîchir'
+    OnClick = btn_test1Click
+    TabOrder = 14
   end
   object serial: TSdpoSerial
     Active = False

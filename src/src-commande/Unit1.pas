@@ -40,6 +40,7 @@ type
     Image2: TImage;
     Label5: TLabel;
 
+    procedure FormShow(Sender: TObject);
     procedure IdleTimer1Timer(Sender: TObject);
 
     procedure MenuItem2Click(Sender: TObject);
@@ -152,6 +153,11 @@ try
        ShowMessage('Exception message = '+E.Message);
      end;
    end;
+
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
 
 end;
 
