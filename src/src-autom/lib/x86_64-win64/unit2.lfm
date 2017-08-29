@@ -334,7 +334,7 @@ object form2: Tform2
   end
   object serial: TSdpoSerial
     Active = False
-    BaudRate = br_57600
+    BaudRate = br__9600
     AltBaudRate = 0
     DataBits = db8bits
     Parity = pNone

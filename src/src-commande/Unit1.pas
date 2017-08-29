@@ -9,7 +9,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, rmLed, rmSwitch, rmDGraph, Grids, Menus,
-  RichMemo, RichMemoUtils, htmlview, unit2;
+  RichMemo, RichMemoUtils, unit2;
 
 type
 

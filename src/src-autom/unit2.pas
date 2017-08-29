@@ -1,6 +1,6 @@
 unit Unit2;
 
-{$mode delphi}
+{$mode objfpc}
 
 interface
 
@@ -104,6 +104,7 @@ begin
      Split(';', str, OutPutList) ;
      //self.caption:=inttostr(OutPutList.count);
    finally
+   end;
      if  OutPutList.count = 4 then begin
        a0:=OutPutList.Strings[0];
        a1:=OutPutList.Strings[1];
@@ -113,8 +114,8 @@ begin
        if self.CheckBox1.checked then begin
          if trim(a0)='' then exit;
 
-         if (strtofloat(a0)>1000) then begin
-            form1.entrees[1]:= (strtofloat(a0)>1000);
+         if (strtofloat(a0)>600) then begin
+            form1.entrees[1]:= (strtofloat(a0)>600);
             s:=path+'img\'+form1.p_entrees[(form1.imgE1 as Timage).tag]+'1.bmp';
             (form1.imgE1 as Timage).Picture.LoadFromFile(s);
 
@@ -125,8 +126,8 @@ begin
          end;
          if trim(a1)='' then exit;
 
-         if (strtofloat(a1)>1000) then begin
-            form1.entrees[2]:= (strtofloat(a1)>1000);
+         if (strtofloat(a1)>600) then begin
+            form1.entrees[2]:= (strtofloat(a1)>600);
             s:=path+'img\'+form1.p_entrees[(form1.imgE2 as Timage).tag]+'1.bmp';
             (form1.imgE2 as Timage).Picture.LoadFromFile(s);
 
@@ -137,8 +138,8 @@ begin
          end;
 
          if trim(a2)='' then exit;
-            if (strtofloat(a2)>1000) then begin
-            form1.entrees[3]:= (strtofloat(a2)>1000);
+            if (strtofloat(a2)>600) then begin
+            form1.entrees[3]:= (strtofloat(a2)>600);
             s:=path+'img\'+form1.p_entrees[(form1.imgE3 as Timage).tag]+'1.bmp';
             (form1.imgE3 as Timage).Picture.LoadFromFile(s);
 
@@ -150,8 +151,8 @@ begin
 
          if trim(a3)=''then exit;
 
-         if (strtofloat(a3)>1000) then begin
-            form1.entrees[4]:= (strtofloat(a3)>1000);
+         if (strtofloat(a3)>600) then begin
+            form1.entrees[4]:= (strtofloat(a3)>600);
             s:=path+'img\'+form1.p_entrees[(form1.imgE4 as Timage).tag]+'1.bmp';
             (form1.imgE4 as Timage).Picture.LoadFromFile(s);
 
@@ -164,7 +165,7 @@ begin
 
        end;
 
-   end;
+
      OutPutList.Free;
    end;
 end;
@@ -201,7 +202,7 @@ end;
 procedure Tform2.IdleTimer1Timer(Sender: TObject);
 begin
   memo2.Clear;
-  self.serial.WriteData('#'+chr(13)+chr(10));
+  self.serial.WriteData('@'+#13+#10);
 
 end;
 

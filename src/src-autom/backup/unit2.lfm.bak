@@ -1,0 +1,354 @@
+object form2: Tform2
+  Left = 730
+  Height = 297
+  Top = 187
+  Width = 486
+  Caption = 'Configuration'
+  ClientHeight = 297
+  ClientWidth = 486
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '1.6.2.0'
+  object CheckBox1: TCheckBox
+    Left = 16
+    Height = 19
+    Top = 8
+    Width = 143
+    Caption = 'Arduino UNO-GROOVE'
+    OnChange = CheckBox1Change
+    OnClick = CheckBox1Click
+    TabOrder = 0
+  end
+  object cb_com: TComboBox
+    Left = 69
+    Height = 23
+    Top = 40
+    Width = 84
+    ItemHeight = 15
+    Items.Strings = (
+      'COM1'
+      'COM2'
+      'COM3'
+      'COM4'
+      'COM5'
+      'COM6'
+      'COM7'
+      'COM8'
+      'COM9'
+      'COM10'
+      'COM11'
+      'COM12'
+      'COM13'
+      'COM14'
+      'COM15'
+      'COM16'
+      'COM17'
+      'COM18'
+      'COM19'
+      'COM20'
+      'COM21'
+      'COM22'
+      'COM23'
+      'COM24'
+      'COM25'
+    )
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 14
+    Height = 15
+    Top = 44
+    Width = 52
+    Caption = 'Port série:'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 20
+    Height = 15
+    Top = 99
+    Width = 40
+    Caption = 'IN1 sur:'
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object Label3: TLabel
+    Left = 20
+    Height = 15
+    Top = 127
+    Width = 40
+    Caption = 'IN2 sur:'
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object Label4: TLabel
+    Left = 216
+    Height = 15
+    Top = 99
+    Width = 52
+    Caption = 'OUT1 sur:'
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object cb_in1: TComboBox
+    Left = 69
+    Height = 23
+    Top = 96
+    Width = 84
+    Enabled = False
+    ItemHeight = 15
+    ItemIndex = 0
+    Items.Strings = (
+      'A0'
+      'A1'
+      'A2'
+      'A3'
+    )
+    TabOrder = 2
+    Text = 'A0'
+  end
+  object cb_in2: TComboBox
+    Left = 69
+    Height = 23
+    Top = 124
+    Width = 84
+    Enabled = False
+    ItemHeight = 15
+    ItemIndex = 1
+    Items.Strings = (
+      'A0'
+      'A1'
+      'A2'
+      'A3'
+    )
+    TabOrder = 3
+    Text = 'A1'
+  end
+  object cb_out0: TComboBox
+    Left = 272
+    Height = 23
+    Top = 96
+    Width = 84
+    ItemHeight = 15
+    ItemIndex = 3
+    Items.Strings = (
+      'D2'
+      'D3'
+      'D4'
+      'D5'
+      'D6'
+      'D7'
+      'D8'
+    )
+    TabOrder = 4
+    Text = 'D5'
+  end
+  object btn_test: TButton
+    Left = 160
+    Height = 23
+    Top = 56
+    Width = 40
+    Caption = '&Tester'
+    OnClick = btn_testClick
+    TabOrder = 5
+  end
+  object Button2: TButton
+    Left = 20
+    Height = 28
+    Top = 248
+    Width = 84
+    Caption = '&Sauvegarder'
+    OnClick = Button2Click
+    TabOrder = 6
+  end
+  object Memo1: TMemo
+    Left = 32
+    Height = 106
+    Top = 296
+    Width = 177
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 7
+    Visible = False
+  end
+  object Memo2: TMemo
+    Left = 58
+    Height = 93
+    Top = 312
+    Width = 181
+    OnChange = Memo2Change
+    TabOrder = 8
+  end
+  object test: TLabel
+    Left = 208
+    Height = 15
+    Top = 56
+    Width = 31
+    Caption = 'test ...'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 20
+    Height = 15
+    Top = 155
+    Width = 40
+    Caption = 'IN3 sur:'
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object Label6: TLabel
+    Left = 20
+    Height = 15
+    Top = 183
+    Width = 40
+    Caption = 'IN4 sur:'
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object cb_in3: TComboBox
+    Left = 69
+    Height = 23
+    Top = 152
+    Width = 84
+    Enabled = False
+    ItemHeight = 15
+    ItemIndex = 2
+    Items.Strings = (
+      'A0'
+      'A1'
+      'A2'
+      'A3'
+    )
+    TabOrder = 9
+    Text = 'A2'
+  end
+  object cb_in4: TComboBox
+    Left = 69
+    Height = 23
+    Top = 180
+    Width = 84
+    Enabled = False
+    ItemHeight = 15
+    ItemIndex = 3
+    Items.Strings = (
+      'A0'
+      'A1'
+      'A2'
+      'A3'
+    )
+    TabOrder = 10
+    Text = 'A3'
+  end
+  object Label7: TLabel
+    Left = 216
+    Height = 15
+    Top = 127
+    Width = 52
+    Caption = 'OUT2 sur:'
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object cb_out1: TComboBox
+    Left = 272
+    Height = 23
+    Top = 124
+    Width = 84
+    ItemHeight = 15
+    ItemIndex = 4
+    Items.Strings = (
+      'D2'
+      'D3'
+      'D4'
+      'D5'
+      'D6'
+      'D7'
+      'D8'
+    )
+    TabOrder = 11
+    Text = 'D6'
+  end
+  object Label8: TLabel
+    Left = 216
+    Height = 15
+    Top = 155
+    Width = 52
+    Caption = 'OUT3 sur:'
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object cb_out2: TComboBox
+    Left = 272
+    Height = 23
+    Top = 155
+    Width = 84
+    ItemHeight = 15
+    ItemIndex = 5
+    Items.Strings = (
+      'D2'
+      'D3'
+      'D4'
+      'D5'
+      'D6'
+      'D7'
+      'D8'
+    )
+    TabOrder = 12
+    Text = 'D7'
+  end
+  object Label9: TLabel
+    Left = 216
+    Height = 15
+    Top = 183
+    Width = 52
+    Caption = 'OUT4 sur:'
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object cb_out3: TComboBox
+    Left = 272
+    Height = 23
+    Top = 180
+    Width = 84
+    ItemHeight = 15
+    ItemIndex = 6
+    Items.Strings = (
+      'D2'
+      'D3'
+      'D4'
+      'D5'
+      'D6'
+      'D7'
+      'D8'
+    )
+    TabOrder = 13
+    Text = 'D8'
+  end
+  object btn_test1: TButton
+    Left = 160
+    Height = 21
+    Top = 32
+    Width = 96
+    Caption = '&Rafraîchir'
+    OnClick = btn_test1Click
+    TabOrder = 14
+  end
+  object serial: TSdpoSerial
+    Active = False
+    BaudRate = br_57600
+    AltBaudRate = 0
+    DataBits = db8bits
+    Parity = pNone
+    FlowControl = fcNone
+    StopBits = sbOne
+    Device = 'COM1'
+    OnRxData = serialRxData
+    left = 400
+    top = 8
+  end
+  object IdleTimer1: TIdleTimer
+    Interval = 500
+    OnTimer = IdleTimer1Timer
+    left = 440
+    top = 8
+  end
+end

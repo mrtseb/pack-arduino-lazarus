@@ -8,7 +8,7 @@ object form2: Tform2
   ClientWidth = 276
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '1.6.2.0'
+  LCLVersion = '1.8.0.4'
   object CheckBox1: TCheckBox
     Left = 16
     Height = 19
@@ -195,13 +195,13 @@ object form2: Tform2
   end
   object serial: TSdpoSerial
     Active = False
-    BaudRate = br_57600
+    BaudRate = br__9600
     AltBaudRate = 0
     DataBits = db8bits
     Parity = pNone
     FlowControl = fcNone
     StopBits = sbOne
-    Device = 'COM4'
+    Device = 'COM3'
     OnRxData = serialRxData
     left = 16
     top = 168

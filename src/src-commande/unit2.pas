@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, PythonEngine, PythonGUIInputOutput, SdpoSerial, Registry;
+  ExtCtrls, SdpoSerial, Registry;
 
 type
 
@@ -91,30 +91,30 @@ begin
 
        //in1
        if (self.CheckBox1.checked) and (self.cb_in1.Text='A0') then begin
-         if a0 <> '' then if strtofloat(a0)>1000 then form1.in1.SwitchOn:= True else form1.in1.SwitchOn:= False;
+         if a0 <> '' then if strtofloat(a0)>600 then form1.in1.SwitchOn:= True else form1.in1.SwitchOn:= False;
        end;
        if (self.CheckBox1.checked) and (self.cb_in1.Text='A1') then begin
-         if a1 <> '' then if strtofloat(a1)>1000 then form1.in1.SwitchOn:= True else form1.in1.SwitchOn:= False;
+         if a1 <> '' then if strtofloat(a1)>600 then form1.in1.SwitchOn:= True else form1.in1.SwitchOn:= False;
        end;
        if (self.CheckBox1.checked) and (self.cb_in1.Text='A2') then begin
-         if a2 <> '' then if strtofloat(a2)>1000 then form1.in1.SwitchOn:= True else form1.in1.SwitchOn:= False;
+         if a2 <> '' then if strtofloat(a2)>600 then form1.in1.SwitchOn:= True else form1.in1.SwitchOn:= False;
        end;
        if (self.CheckBox1.checked) and (self.cb_in1.Text='A3') then begin
-         if a3 <> '' then if strtofloat(a3)>1000 then form1.in1.SwitchOn:= True else form1.in1.SwitchOn:= False;
+         if a3 <> '' then if strtofloat(a3)>1600 then form1.in1.SwitchOn:= True else form1.in1.SwitchOn:= False;
        end;
 
        //in2
        if (self.CheckBox1.checked) and (self.cb_in2.Text='A0') then begin
-         if a0 <> '' then if strtofloat(a0)>1000 then form1.in2.SwitchOn:= True else form1.in2.SwitchOn:= False;
+         if a0 <> '' then if strtofloat(a0)>600 then form1.in2.SwitchOn:= True else form1.in2.SwitchOn:= False;
        end;
        if (self.CheckBox1.checked) and (self.cb_in2.Text='A1') then begin
-         if a1 <> '' then if strtofloat(a1)>1000 then form1.in2.SwitchOn:= True else form1.in2.SwitchOn:= False;
+         if a1 <> '' then if strtofloat(a1)>600 then form1.in2.SwitchOn:= True else form1.in2.SwitchOn:= False;
        end;
        if (self.CheckBox1.checked) and (self.cb_in2.Text='A2') then begin
-         if a2 <> '' then if strtofloat(a2)>1000 then form1.in2.SwitchOn:= True else form1.in2.SwitchOn:= False;
+         if a2 <> '' then if strtofloat(a2)>600 then form1.in2.SwitchOn:= True else form1.in2.SwitchOn:= False;
        end;
        if (self.CheckBox1.checked) and (self.cb_in2.Text='A3') then begin
-         if a3 <> '' then if strtofloat(a3)>1000 then form1.in2.SwitchOn:= True else form1.in2.SwitchOn:= False;
+         if a3 <> '' then if strtofloat(a3)>600 then form1.in2.SwitchOn:= True else form1.in2.SwitchOn:= False;
        end;
 
        form1.in1Change(self);
@@ -153,7 +153,7 @@ end;
 procedure Tform2.IdleTimer1Timer(Sender: TObject);
 begin
   memo2.Clear;
-  self.serial.WriteData('#'+chr(13)+chr(10));
+  self.serial.WriteData('@');
 
 end;
 
